@@ -21,19 +21,21 @@ const SignUpPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:5000/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-        });
-
-        if (response.ok) {
-            console.log('register successful');
-        } else {
-            console.error('register field');
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+            if (response.ok) {
+                console.log('succesfuly ')
+            }
+        } catch (err) {
+            console.log(err)
         }
+
     };
 
     return (
